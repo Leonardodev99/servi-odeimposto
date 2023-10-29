@@ -1,6 +1,7 @@
 package service;
 
 import entities.CarRental;
+import entities.Invoice;
 
 public class RentalService {
 	private Double pricePerHour;
@@ -52,9 +53,10 @@ public class RentalService {
 			basicPayment = pricePerHour*x;
 		}
 		else {
-			basicPayment = pricePerDay*x;
+			basicPayment = pricePerDay*(x/24);
 		}
-		taxService.tax(basicPayment);
+		double tax = taxService.tax(basicPayment);
+		carRental.setInvoice(new Invoice(basicPayment, tax));
 	}
 	
 
