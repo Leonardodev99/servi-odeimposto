@@ -7,13 +7,13 @@ public class RentalService {
 	private Double pricePerHour;
 	private Double pricePerDay;
 	
-	private AngolaTaxService taxService;
+	private TaxService taxService;
 
 	public RentalService() {
 		
 	}
 
-	public RentalService(Double pricePerHour, Double pricePerDay, AngolaTaxService taxService) {
+	public RentalService(Double pricePerHour, Double pricePerDay, TaxService taxService) {
 		
 		this.pricePerHour = pricePerHour;
 		this.pricePerDay = pricePerDay;
@@ -36,11 +36,11 @@ public class RentalService {
 		this.pricePerDay = pricePerDay;
 	}
 
-	public AngolaTaxService getTaxService() {
+	public TaxService getTaxService() {
 		return taxService;
 	}
 
-	public void setTaxService(AngolaTaxService taxService) {
+	public void setTaxService(TaxService taxService) {
 		this.taxService = taxService;
 	}
 	public void processInvoice(CarRental carRental) {
