@@ -46,14 +46,14 @@ public class RentalService {
 	public void processInvoice(CarRental carRental) {
 		long t1 = carRental.getStart().getTime();
 		long t2= carRental.getFinish().getTime();
-		double duration = (double) (t2-t1)/1000/60/60;
-		int x = (int) Math.ceil(duration);
+		double hour = (double) (t2-t1)/1000/60/60;
+		 Math.ceil(hour);
 		double basicPayment;
-		if(x<=12) {
-			basicPayment = pricePerHour*x;
+		if(hour<=12) {
+			basicPayment = pricePerHour*Math.ceil(hour);
 		}
 		else {
-			basicPayment = pricePerDay*(x/24);
+			basicPayment = pricePerDay*Math.ceil(hour/24);
 		}
 		double tax = taxService.tax(basicPayment);
 		carRental.setInvoice(new Invoice(basicPayment, tax));
